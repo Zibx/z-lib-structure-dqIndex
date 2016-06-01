@@ -1,0 +1,26 @@
+{
+  "name": "z-lib-structure-dequeue",
+  "version": "0.0.1",
+  "description": "dequeue",
+  "main": "dequeue.js",
+  "scripts": {
+    "test": "node_modules/.bin/_mocha",
+    "coverage": "istanbul cover _mocha -- -R spec"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "nvm": "^0.0.3"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "istanbul": "*"
+  },
+  "keywords": [
+    "dequeue"
+  ],
+  "author": "Zibx",
+  "license": "MIT"
+}
