@@ -1,6 +1,6 @@
 {
   "name": "z-lib-structure-dqIndex",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "indexed dequeue",
   "main": "index.js",
   "scripts": {
