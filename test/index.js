@@ -1,10 +1,11 @@
 /**
  * Created by zibx on 31.05.16.
  */
-var dq = require('../dequeue');
+var dqI = require('../index');
 var assert = require('chai').assert;
-describe('dequeue', function() {
-    var q = new dq();
+describe('dequeue-index', function() {
+    var q = new dqI();
+    // 1. it should pass dequeue tests
     it('push', function () {
         q.push({a:0});
         assert.deepEqual(q.get(0), {a:0});
@@ -37,7 +38,7 @@ describe('dequeue', function() {
         assert.equal(q.get(100), undefined);
     });
     it('shift/unshift first', function () {
-        var d = new dq();
+        var d = new dqI();
         for(var i = 0; i <= 10; i++)
             d.unshift({a:i})
 
@@ -47,7 +48,7 @@ describe('dequeue', function() {
         assert.equal(d.shift(), void 0);
     });
     it('push/pop first', function () {
-        var d = new dq();
+        var d = new dqI();
         for(var i = 0; i <= 10; i++)
             d.push({a:i})
 
@@ -55,5 +56,29 @@ describe('dequeue', function() {
             assert.deepEqual(d.pop(), {a:i});
 
         assert.equal(d.pop(), void 0);
+    });
+
+    // index tests
+    it('remove. prime numbers', function () {
+        var d = new dqI('a');
+        for(var i = 0; i <= 1000; i++)
+            d.push({a:i});
+
+
+
+        [2,3,5,7,11,13,17,19,23,29,31,37].forEach(function (n) {
+            for(i = n*2; i <= 1000; i+=n)
+                d.remove(i);
+        });
+        d.remove(0);
+        d.remove(1);
+        var el;
+        var list = d.toArray().map(function(el){return el.a})
+        //console.log(list.length, list);
+
+
+        assert.equal(d.length, 168); // there are 168 prime numbers before 1000 (https://primes.utm.edu/lists/small/1000.txt)
+
+
     });
 });

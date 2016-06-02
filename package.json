@@ -1,17 +1,18 @@
 {
-  "name": "z-lib-structure-dequeue",
-  "version": "0.0.1",
-  "description": "dequeue",
-  "main": "dequeue.js",
+  "name": "z-lib-structure-dqIndex",
+  "version": "0.0.2",
+  "description": "indexed dequeue",
+  "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/_mocha",
+    "test": "_mocha",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "nvm": "^0.0.3"
+    "nvm": "^0.0.3",
+    "z-lib-structure-dequeue": "*"
   },
   "devDependencies": {
     "chai": "*",
