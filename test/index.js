@@ -120,4 +120,11 @@ describe('dequeue-index', function() {
 
         assert.deepEqual(d.getById(500), {id:500, h: (500*14+735)%35});
     });
+    it('remove', function () {
+        var d = new dq();
+
+        d.push({id: 123});
+
+        assert.deepEqual(d.remove('123'), {id: 123});
+    });
 });

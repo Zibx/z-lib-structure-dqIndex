@@ -72,18 +72,16 @@ module.exports = (function () {
                 pointer.prev.next = next;
             else {
                 this.dequeue.first = next;
-                next.prev = null;
             }
 
             if (next)
                 next.prev = pointer.prev;
             else {
                 this.dequeue.last = pointer.prev;
-                pointer.prev.next = null;
             }
 
             this._clearIndex(id);
-            return true;
+            return pointer.data;
         },
         getById: function (id) {
             return this.index[id].data;
