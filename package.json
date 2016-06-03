@@ -11,7 +11,7 @@
     "test": "test"
   },
   "dependencies": {
-    "nvm": "^0.0.3",
+    "nvm": "^0.0.4",
     "z-lib-structure-dequeue": "*"
   },
   "devDependencies": {

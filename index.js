@@ -111,7 +111,21 @@ module.exports = (function () {
         },
         get: function (index) {
             return this.dequeue.get(index)
+        },
+        map: function (fn) {
+            return this.dequeue.map(fn);
+        },
+        each: function (fn) {
+            return this.dequeue.each(fn);
+        },
+        filter: function (fn) {
+            return this.dequeue.filter(fn);
+        },
+        reduce: function (a,b,c) {
+            return this.dequeue.reduce(a,b,c);
         }
     };
+
+    Index.prototype.forEach = Index.prototype.each;
     return Index;
 })();
