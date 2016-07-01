@@ -27,6 +27,7 @@ module.exports = (function () {
     };
     Index.prototype = {
         key: 'id',
+        length: 0,
         _addIndex: function (item, el) {
             this.index[item[this.key]] = el;
         },
