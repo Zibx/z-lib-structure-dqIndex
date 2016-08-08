@@ -19,7 +19,7 @@ module.exports = (function () {
 
     'use strict';
     var dq = require('z-lib-structure-dequeue');
-
+    var slice = Array.prototype.slice;
     var Index = function (id) {
         this.key = id || 'id';
         this.index = {};
