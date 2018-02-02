@@ -85,8 +85,13 @@ module.exports = (function () {
             return pointer.data;
         },
         getById: function (id) {
-            return this.index[id].data;
-        },
+            var index = this.index;
+
+            if(id in index)
+                return index[id].data;
+            else
+                throw new Error('Error: Unexisted ID: '+id);	
+	},
         splice: function (pos, count) {
             var dq = this.dequeue,
                 args = slice.call(arguments, 0),
