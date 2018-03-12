@@ -127,4 +127,34 @@ describe('dequeue-index', function() {
 
         assert.deepEqual(d.remove('123'), {id: 123});
     });
+    it('splice', function () {
+        var d = new dqI('id');
+        for(var i = 0; i < 100; i++)
+            d.push({id:i, data: i*2});
+
+        var removed = d.splice(5,15);
+        assert.equal(removed.length,15);
+        for(var i = 0; i < removed.length; i++)
+            assert.deepEqual(removed[i], {id:removed[i].id, data:removed[i].id*2});
+
+        assert.equal(d.length,85);
+        var mover = d.dequeue.first;
+        for(var i = 0; i < d.length; i++) {
+            assert.deepEqual(mover.data, {id:mover.data['id'], data:mover.data['id']*2});
+            mover = mover.next;
+        }
+    });
+
+    it('slice', function () {
+        var d = new dqI('id');
+        for(var i = 0; i < 10; i++)
+            d.push({id:i, data: i*2});
+        var newdqI = d.slice(2,4);
+        assert.equal(newdqI.length,2);
+        var mover = newdqI.dequeue.first;
+        for(var i = 0; i < newdqI.length; i++) {
+            assert.deepEqual(mover.data, {id:mover.data['id'], data:mover.data['id']*2});
+            mover = mover.next;
+        }
+    });
 });
