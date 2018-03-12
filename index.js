@@ -101,8 +101,15 @@ module.exports = (function () {
             this.length = this.dequeue.length;
             return out;
         },
-        slice: function () {
-
+        slice: function (begin,end) {
+            var dq = this.dequeue,
+                args = Array.prototype.slice.call(arguments, 0),
+                sliced_dq = dq.slice.apply(dq, args),
+                out_dq = new Index('id');
+            for(var i = 0, _i = sliced_dq.length; i < _i; ++i) {
+                out_dq.push(sliced_dq.get(i));
+            }
+            return out_dq;
         },
         set: function (id, item) {
 
